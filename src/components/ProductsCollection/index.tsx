@@ -19,7 +19,7 @@ export function ProductsCollection({ title }: ProductsCollectionProps) {
       <h1>{title}</h1>
 
       <ProductCardContainer>
-        <ProductCardContent>
+        <ProductCardContent to="/product/1" title="Ver produto">
           <span>10% off</span>
           <img src={imgTest} alt="" />
           <h3>
@@ -39,7 +39,7 @@ export function ProductsCollection({ title }: ProductsCollectionProps) {
           </PriceOrViewContainer>
         </ProductCardContent>
 
-        <ProductCardContent>
+        <ProductCardContent to="/product/2" title="Ver produto">
           <span>10% off</span>
           <img src={imgTest} alt="" />
           <h3>Nome do produto com poucos caracteres</h3>

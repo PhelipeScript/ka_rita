@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 export const ProductsCollectionContainer = styled.section`
   width: 100%;
@@ -81,12 +82,12 @@ export const ViewProductContainer = styled.div`
   }
 `
 
-export const ProductCardContent = styled.div`
+export const ProductCardContent = styled(NavLink)`
   width: 286px;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
   transition: display 1s;
+  text-decoration: none;
 
   & > span:first-of-type {
     background: ${(props) => props.theme['red-800']};

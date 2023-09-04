@@ -10,13 +10,16 @@ import {
 
 import logoImg from '../../assets/logo.svg'
 import { MagnifyingGlass } from 'phosphor-react'
+import { NavLink } from 'react-router-dom'
 
 export function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>
         <HeaderContentTop>
-          <img src={logoImg} alt="" />
+          <NavLink to="/">
+            <img src={logoImg} alt="" />
+          </NavLink>
 
           <SearchContainer>
             <SearchInput placeholder="O que você procura ?" />
