@@ -1,61 +1,19 @@
-import {
-  PriceOrViewContainer,
-  Prices,
-  ProductCardContainer,
-  ProductCardContent,
-  ProductsCollectionContainer,
-  ViewProductContainer,
-} from './styles'
-
-import imgTest from '../../assets/calcinhas/calcinha1.png'
+import { ReactNode } from 'react'
+import { ProductCardContainer, ProductsCollectionContainer } from './styles'
 
 interface ProductsCollectionProps {
+  children: ReactNode
   title: string
 }
 
-export function ProductsCollection({ title }: ProductsCollectionProps) {
+export function ProductsCollection({
+  title,
+  children,
+}: ProductsCollectionProps) {
   return (
     <ProductsCollectionContainer>
       <h1>{title}</h1>
-
-      <ProductCardContainer>
-        <ProductCardContent to="/product/1" title="Ver produto">
-          <span>10% off</span>
-          <img src={imgTest} alt="" />
-          <h3>
-            Nome do produto com muitos caracteres para que seja possível testar
-            muitas possibilidades.
-          </h3>
-
-          <PriceOrViewContainer>
-            <Prices>
-              <span>R$ 79,90</span>
-              <strong>R$ 49,90</strong>
-            </Prices>
-
-            <ViewProductContainer>
-              <button>Ver produto</button>
-            </ViewProductContainer>
-          </PriceOrViewContainer>
-        </ProductCardContent>
-
-        <ProductCardContent to="/product/2" title="Ver produto">
-          <span>10% off</span>
-          <img src={imgTest} alt="" />
-          <h3>Nome do produto com poucos caracteres</h3>
-
-          <PriceOrViewContainer>
-            <Prices>
-              <span>R$ 79,90</span>
-              <strong>R$ 49,90</strong>
-            </Prices>
-
-            <ViewProductContainer>
-              <button>Ver produto</button>
-            </ViewProductContainer>
-          </PriceOrViewContainer>
-        </ProductCardContent>
-      </ProductCardContainer>
+      <ProductCardContainer>{children}</ProductCardContainer>
     </ProductsCollectionContainer>
   )
 }
