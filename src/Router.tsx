@@ -7,9 +7,9 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 export function Router() {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:productId" element={<Product />} />
+      <Route path="/ka_rita" element={<DefaultLayout />}>
+        <Route path="/ka_rita" element={<Home />} />
+        <Route path="/ka_rita/product/:productId" element={<Product />} />
       </Route>
     </Routes>
   )

@@ -5,12 +5,12 @@ import calcinha4 from '../../assets/calcinhas/calcinha4.png'
 import calcinha5 from '../../assets/calcinhas/calcinha5.png'
 import calcinha6 from '../../assets/calcinhas/calcinha6.png'
 import calcinha7 from '../../assets/calcinhas/calcinha7.png'
-import calcinha8 from '../../assets/calcinhas/calcinha8.png'
-import calcinha9 from '../../assets/calcinhas/calcinha9.png'
-import calcinha10 from '../../assets/calcinhas/calcinha10.png'
-import calcinha11 from '../../assets/calcinhas/calcinha11.png'
-import calcinha12 from '../../assets/calcinhas/calcinha12.png'
-import calcinha13 from '../../assets/calcinhas/calcinha13.png'
+// import calcinha8 from '../../assets/calcinhas/calcinha8.png'
+// import calcinha9 from '../../assets/calcinhas/calcinha9.png'
+// import calcinha10 from '../../assets/calcinhas/calcinha10.png'
+// import calcinha11 from '../../assets/calcinhas/calcinha11.png'
+// import calcinha12 from '../../assets/calcinhas/calcinha12.png'
+// import calcinha13 from '../../assets/calcinhas/calcinha13.png'
 
 export interface ProductProps {
     id: string;
@@ -25,9 +25,9 @@ export interface ProductProps {
 
 interface Items {
     calcinha: ProductProps[];
-    sutia: ProductProps[];
-    conjunto: ProductProps[];
-    lingerie: ProductProps[];
+    // sutia: ProductProps[];
+    // conjunto: ProductProps[];
+    // lingerie: ProductProps[];
 }
 
 export const items: Items = {
@@ -125,79 +125,79 @@ export const items: Items = {
         },
     ],
 
-    sutia: [
-        {
-            id: '8',
-            name: 'Sutiã Loba Abertura Frontal',
-            description: null,
-            size:  ['P', 'M', 'G'],
-            color: ['Bege'],
-            price: {
-                withoutDiscount: 69.90,
-                withDiscount: 44.90,
-            }
-        },
-        {
-            id: '9',
-            name: 'Sutiã Adesivo',
-            description: null,
-            size:  ['P', 'M', 'G'],
-            color: ['Bege'],
-            price: {
-                withoutDiscount: 69.90,
-                withDiscount: 44.90,
-            }
-        },
-        {
-            id: '10',
-            name: 'Sutiã com Bojo',
-            description: null,
-            size:  ['P', 'M', 'G'],
-            color: ['Bege', 'Preto', 'Rosa Claro', 'Vermelho', 'Branco', 'Marrom'],
-            price: {
-                withoutDiscount: 69.90,
-                withDiscount: 44.90,
-            }
-        },
-    ],
+    // sutia: [
+    //     {
+    //         id: '8',
+    //         name: 'Sutiã Loba Abertura Frontal',
+    //         description: null,
+    //         size:  ['P', 'M', 'G'],
+    //         color: ['Bege'],
+    //         price: {
+    //             withoutDiscount: 69.90,
+    //             withDiscount: 44.90,
+    //         }
+    //     },
+    //     {
+    //         id: '9',
+    //         name: 'Sutiã Adesivo',
+    //         description: null,
+    //         size:  ['P', 'M', 'G'],
+    //         color: ['Bege'],
+    //         price: {
+    //             withoutDiscount: 69.90,
+    //             withDiscount: 44.90,
+    //         }
+    //     },
+    //     {
+    //         id: '10',
+    //         name: 'Sutiã com Bojo',
+    //         description: null,
+    //         size:  ['P', 'M', 'G'],
+    //         color: ['Bege', 'Preto', 'Rosa Claro', 'Vermelho', 'Branco', 'Marrom'],
+    //         price: {
+    //             withoutDiscount: 69.90,
+    //             withDiscount: 44.90,
+    //         }
+    //     },
+    // ],
 
-    conjunto: [
-        {
-            id: '11',
-            name: 'Conjunto Microfibra Sutiã com Bojo',
-            description: null,
-            size:  ['P', 'M', 'G'],
-            color: ['Azul'],
-            price: {
-                withoutDiscount: 89.90,
-                withDiscount: 54.90,
-            }
-        },
-    ],
+    // conjunto: [
+    //     {
+    //         id: '11',
+    //         name: 'Conjunto Microfibra Sutiã com Bojo',
+    //         description: null,
+    //         size:  ['P', 'M', 'G'],
+    //         color: ['Azul'],
+    //         price: {
+    //             withoutDiscount: 89.90,
+    //             withDiscount: 54.90,
+    //         }
+    //     },
+    // ],
 
-    lingerie: [
-        {
-            id: '12',
-            name: 'Lingerie com Bojo Camisere',
-            description: null,
-            size:  ['P', 'M', 'G'],
-            color: ['Preto', 'Bege Escuro', 'Branco', 'Bege'],
-            price: {
-                withoutDiscount: 89.90,
-                withDiscount: 54.90,
-            }
-        },
-        {
-            id: '13',
-            name: 'Camisere Lingerie',
-            description: null,
-            size:  ['P', 'M', 'G'],
-            color: ['Preto', 'Branco', 'Bege Escuro'],
-            price: {
-                withoutDiscount: 89.90,
-                withDiscount: 54.90,
-            }
-        },
-    ],
+    // lingerie: [
+    //     {
+    //         id: '12',
+    //         name: 'Lingerie com Bojo Camisere',
+    //         description: null,
+    //         size:  ['P', 'M', 'G'],
+    //         color: ['Preto', 'Bege Escuro', 'Branco', 'Bege'],
+    //         price: {
+    //             withoutDiscount: 89.90,
+    //             withDiscount: 54.90,
+    //         }
+    //     },
+    //     {
+    //         id: '13',
+    //         name: 'Camisere Lingerie',
+    //         description: null,
+    //         size:  ['P', 'M', 'G'],
+    //         color: ['Preto', 'Branco', 'Bege Escuro'],
+    //         price: {
+    //             withoutDiscount: 89.90,
+    //             withDiscount: 54.90,
+    //         }
+    //     },
+    // ],
 
 }

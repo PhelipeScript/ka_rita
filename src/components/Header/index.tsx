@@ -17,7 +17,7 @@ export function Header() {
     <HeaderContainer>
       <HeaderContent>
         <HeaderContentTop>
-          <NavLink to="/">
+          <NavLink to="/ka_rita">
             <img src={logoImg} alt="" />
           </NavLink>
 

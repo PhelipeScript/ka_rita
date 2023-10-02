@@ -8,17 +8,17 @@ export class InMemoryRepository {
       item = items.calcinha.find(item => item.id === id);
     }
 
-    if (!item) {
-      item = items.conjunto.find(item => item.id === id);
-    }
+    // if (!item) {
+    //   item = items.conjunto.find(item => item.id === id);
+    // }
 
-    if (!item) {
-      item = items.lingerie.find(item => item.id === id);
-    }
+    // if (!item) {
+    //   item = items.lingerie.find(item => item.id === id);
+    // }
 
-    if (!item) {
-      item = items.sutia.find(item => item.id === id);
-    }
+    // if (!item) {
+    //   item = items.sutia.find(item => item.id === id);
+    // }
 
     if (!item) {
       return null;
