@@ -28,25 +28,39 @@ export const HeaderContentTop = styled.div`
     font-size: 1.865rem;
     cursor: pointer;
   }
+
+  img {
+    width: 100%;
+
+    @media (max-width: 768px) {
+      width: 70%;
+    }
+  }
 `
 
 export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border-bottom: 2px solid ${(props) => props.theme.black};
   padding: 0 5px;
+  height: 40px;
+  width: 450px;
 
   svg {
     color: red;
     font-size: 1.25rem;
     cursor: pointer;
   }
+
+  @media (max-width: 768px) {
+    width: 100vw;
+    max-width: 200px;
+  }
 `
 
 export const SearchInput = styled.input`
-  height: 40px;
-  width: 450px;
+  width: 100%;
   border: 0;
   background: transparent;
   color: ${(props) => props.theme['gray-900']};
@@ -66,11 +80,18 @@ export const SearchInput = styled.input`
 export const HeaderContentBottom = styled.ul`
   list-style: none;
   padding: 1rem 0;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
 
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
+
+  @media (max-width: 768px) {
+    overflow: scroll;
+  }
 `
 
 export const CategoryItem = styled.li`

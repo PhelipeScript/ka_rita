@@ -59,8 +59,7 @@ export const ViewProductContainer = styled.div`
 `
 
 export const ProductCardContent = styled(NavLink)`
-  max-width: 286px;
-  width: 100%;
+  min-width: 240px;
   display: flex;
   flex-direction: column;
   transition: display 1s;
@@ -98,5 +97,9 @@ export const ProductCardContent = styled(NavLink)`
   &:hover ${ViewProductContainer} {
     opacity: 1;
     transition: opacity 0.2s;
+  }
+
+  @media (max-width: 768px) {
+    min-width: 220px;
   }
 `

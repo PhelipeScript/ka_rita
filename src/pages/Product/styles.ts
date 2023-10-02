@@ -44,11 +44,13 @@ interface ImageOptionProps {
 export const ImageOption = styled.button<ImageOptionProps>`
   max-width: 100%;
   cursor: pointer;
+  border: none;
 
   ${(props) =>
     props.active
       ? css`
           opacity: 1;
+          border: 1px solid;
         `
       : css`
           opacity: 0.5;
@@ -71,6 +73,11 @@ export const ImageContainer = styled.section`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    @media (max-width: 768px) {
+      left: 0;
+      bottom: -120px;
+    }
   }
 
   & > div img {
@@ -113,6 +120,10 @@ export const InfoContainer = styled.section`
     color: ${(props) => props.theme.red};
     margin-bottom: 20px;
   }
+
+  @media (max-width: 768px) {
+    margin-top: 100px;
+  }
 `
 
 export const ProductForm = styled.form`
@@ -148,7 +159,7 @@ const DefaultOption = styled.input`
     content: '▲';
     position: absolute;
     bottom: -20px;
-    left: 8px;
+    left: 12px;
     width: fit-content;
     height: auto;
     color: black;

@@ -14,6 +14,9 @@ export const ProductsCollectionContainer = styled.section`
   & + & {
     margin-top: 3rem;
   }
+
+  /* border: 1px solid red; */
+  overflow: hidden;
 `
 
 export const ProductCardContainer = styled.div`
@@ -24,4 +27,11 @@ export const ProductCardContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 2rem;
+
+  /* border: 1px solid blue; */
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    overflow: scroll;
+  }
 `

@@ -1,4 +1,4 @@
-import { styled } from 'styled-components'
+import { css, styled } from 'styled-components'
 
 export const PictureCollectionContainer = styled.section`
   width: 100%;
@@ -27,4 +27,20 @@ export const PictureContent = styled.div<PictureContentProps>`
   display: flex;
   align-items: center;
   cursor: pointer;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    ${(props) =>
+      props.$gridArea === 'img2' || props.$gridArea === 'img3'
+        ? css`
+            display: none;
+          `
+        : css`
+            display: flex;
+          `}
+  }
 `
