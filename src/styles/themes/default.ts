@@ -2,6 +2,9 @@ export const defaultTheme = {
   white: '#fff',
   black: '#000',
   red: '#f00',
+  pink: '#E94769',
+
+  'pink-700': '#EC174F',
 
   'red-800': '#771E19',
 

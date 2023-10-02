@@ -5,22 +5,33 @@ import {
   ViewProductContainer,
 } from './styles'
 
-import imgTest from '../../../assets/calcinhas/calcinha1.png'
+interface ProductCardProps {
+  id: string
+  discountPercentage: number
+  imgUrl: string
+  title: string
+  priceWithoutDiscount: string
+  priceWithDiscount: string
+}
 
-export function ProductCard() {
+export function ProductCard({
+  id,
+  discountPercentage,
+  imgUrl,
+  title,
+  priceWithoutDiscount,
+  priceWithDiscount,
+}: ProductCardProps) {
   return (
-    <ProductCardContent to="/product/1" title="Ver produto">
-      <span>10% off</span>
-      <img src={imgTest} alt="" />
-      <h3>
-        Nome do produto com muitos caracteres para que seja possível testar
-        muitas possibilidades.
-      </h3>
+    <ProductCardContent to={`/product/${id}`} title="Ver produto">
+      <span>{discountPercentage}% off</span>
+      <img src={imgUrl} alt="" />
+      <h3>{title}</h3>
 
       <PriceOrViewContainer>
         <Prices>
-          <span>R$ 79,90</span>
-          <strong>R$ 49,90</strong>
+          <span>R$ {priceWithoutDiscount}</span>
+          <strong>R$ {priceWithDiscount}</strong>
         </Prices>
 
         <ViewProductContainer>

@@ -12,6 +12,7 @@ export const Prices = styled.div`
   flex-direction: column;
   gap: 10px;
   position: absolute;
+  transition: opacity 0.2s;
 
   span {
     text-decoration: line-through;
@@ -32,9 +33,10 @@ export const ViewProductContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
 
   button {
     all: unset;
@@ -57,7 +59,8 @@ export const ViewProductContainer = styled.div`
 `
 
 export const ProductCardContent = styled(NavLink)`
-  width: 286px;
+  max-width: 286px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   transition: display 1s;
@@ -75,7 +78,8 @@ export const ProductCardContent = styled(NavLink)`
     object-position: center;
     object-fit: cover;
     width: 100%;
-    height: auto;
+    min-height: 190px;
+    height: 100%;
     max-height: 229px;
   }
 
@@ -88,10 +92,11 @@ export const ProductCardContent = styled(NavLink)`
   }
 
   &:hover ${Prices} {
-    display: none;
+    opacity: 0;
   }
 
   &:hover ${ViewProductContainer} {
-    display: flex;
+    opacity: 1;
+    transition: opacity 0.2s;
   }
 `

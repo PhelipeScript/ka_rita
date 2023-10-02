@@ -1,10 +1,26 @@
-interface ProductProps {
+import calcinha1 from '../../assets/calcinhas/calcinha1.png'
+import calcinha2 from '../../assets/calcinhas/calcinha2.png'
+import calcinha3 from '../../assets/calcinhas/calcinha3.png'
+import calcinha4 from '../../assets/calcinhas/calcinha4.png'
+import calcinha5 from '../../assets/calcinhas/calcinha5.png'
+import calcinha6 from '../../assets/calcinhas/calcinha6.png'
+import calcinha7 from '../../assets/calcinhas/calcinha7.png'
+import calcinha8 from '../../assets/calcinhas/calcinha8.png'
+import calcinha9 from '../../assets/calcinhas/calcinha9.png'
+import calcinha10 from '../../assets/calcinhas/calcinha10.png'
+import calcinha11 from '../../assets/calcinhas/calcinha11.png'
+import calcinha12 from '../../assets/calcinhas/calcinha12.png'
+import calcinha13 from '../../assets/calcinhas/calcinha13.png'
+
+export interface ProductProps {
     id: string;
     name: string;
     description: string | null;
     size: string[];
     color: string[];
     price: { withoutDiscount: number, withDiscount: number }
+    imgUrl: string
+    category?: string
 }
 
 interface Items {
@@ -25,7 +41,9 @@ export const items: Items = {
             price: {
                 withoutDiscount: 69.90,
                 withDiscount: 44.90,
-            }
+            },
+            imgUrl: calcinha1,
+            category: 'calcinha'
         },
         {
             id: '2',
@@ -36,7 +54,9 @@ export const items: Items = {
             price: {
                 withoutDiscount: 69.90,
                 withDiscount: 44.90,
-            }
+            },
+            imgUrl: calcinha2,
+            category: 'calcinha'
         },
         {
             id: '3',
@@ -47,7 +67,9 @@ export const items: Items = {
             price: {
                 withoutDiscount: 69.90,
                 withDiscount: 44.90,
-            }
+            },
+            imgUrl: calcinha3,
+            category: 'calcinha'
         },
         {
             id: '4',
@@ -58,7 +80,9 @@ export const items: Items = {
             price: {
                 withoutDiscount: 69.90,
                 withDiscount: 44.90,
-            }
+            },
+            imgUrl: calcinha4,
+            category: 'calcinha'
         },
         {
             id: '5',
@@ -69,7 +93,9 @@ export const items: Items = {
             price: {
                 withoutDiscount: 69.90,
                 withDiscount: 44.90,
-            }
+            },
+            imgUrl: calcinha5,
+            category: 'calcinha'
         },
         {
             id: '6',
@@ -80,7 +106,9 @@ export const items: Items = {
             price: {
                 withoutDiscount: 69.90,
                 withDiscount: 44.90,
-            }
+            },
+            imgUrl: calcinha6,
+            category: 'calcinha'
         },
         {
             id: '7',
@@ -91,7 +119,9 @@ export const items: Items = {
             price: {
                 withoutDiscount: 69.90,
                 withDiscount: 44.90,
-            }
+            }, 
+            imgUrl: calcinha7,
+            category: 'calcinha'
         },
     ],
 
