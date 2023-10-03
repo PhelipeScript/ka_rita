@@ -3,6 +3,7 @@ export const defaultTheme = {
   black: '#000',
   red: '#f00',
   pink: '#E94769',
+  'blue-400': '#0086FF',
 
   'pink-700': '#EC174F',
 

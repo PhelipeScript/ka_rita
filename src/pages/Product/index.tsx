@@ -3,6 +3,9 @@ import { InMemoryRepository } from '../../database/in-memory/InMemoryRepository'
 import {
   Button,
   ColorOption,
+  FreteForm,
+  FreteServiceCard,
+  FreteServiceContainer,
   ImageContainer,
   ImageOption,
   InfoContainer,
@@ -12,6 +15,7 @@ import {
   ProductInfo,
   SizeOption,
 } from './styles'
+import { MapPin } from 'phosphor-react'
 
 export function Product() {
   const { productId } = useParams()
@@ -73,6 +77,38 @@ export function Product() {
 
             <Button>Comprar</Button>
           </ProductForm>
+
+          <FreteForm action="">
+            <label htmlFor="cep">
+              <MapPin size={18} weight="fill" color="#0086FF" />
+              Calcular frete e prazo:
+            </label>
+            <input
+              type="number"
+              name="cep"
+              id="cep"
+              placeholder="Digite seu CEP"
+            />
+            <button>Calcular</button>
+          </FreteForm>
+
+          <FreteServiceContainer>
+            <FreteServiceCard visible={true}>
+              <div>
+                <strong>Correios SEDEX</strong>
+                <span>Prazo de entrega: 2 dias úteis.</span>
+              </div>
+              <strong>R$ 27,90</strong>
+            </FreteServiceCard>
+
+            <FreteServiceCard visible={true}>
+              <div>
+                <strong>Correios PAC</strong>
+                <span>Prazo de entrega: 6 dias úteis.</span>
+              </div>
+              <strong>R$ 20,90</strong>
+            </FreteServiceCard>
+          </FreteServiceContainer>
         </InfoContainer>
       </ProductInfo>
     </ProductContainer>

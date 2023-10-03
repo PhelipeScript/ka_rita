@@ -218,3 +218,100 @@ export const Button = styled.button`
     transition: background 0.1s ease;
   }
 `
+
+export const FreteForm = styled.form`
+  display: grid;
+  grid-template-areas: 'label label' 'input button';
+  gap: 5px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-top: 30px;
+  /* background: ${(props) => props.theme['gray-100']}; */
+
+  label {
+    grid-area: label;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  input {
+    grid-area: input;
+    all: unset;
+    /* width: 100%; */
+    padding: 0 5px;
+    box-shadow: 0 0 0 2px transparent;
+    border-bottom: 1px solid ${(props) => props.theme['blue-400']};
+
+    &:focus {
+      border: none;
+      box-shadow: 0 0 0 2px ${(props) => props.theme['blue-400']};
+      border-radius: 4px;
+      transition: all 0.1s;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  button {
+    grid-area: button;
+    all: unset;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.865rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background: ${(props) => props.theme['blue-400']};
+    color: ${(props) => props.theme.white};
+
+    &:hover {
+      background: #1a43bf;
+      transition: background 0.1s ease;
+    }
+  }
+`
+
+export const FreteServiceContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 10px;
+`
+
+interface FreteServiceCardProps {
+  visible: boolean
+}
+
+export const FreteServiceCard = styled.div<FreteServiceCardProps>`
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  border-radius: 4px;
+  display: ${(props) => (props.visible ? 'flex' : 'none')};
+  align-items: flex-start;
+  justify-content: space-between;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      font-size: 0.865rem;
+    }
+  }
+
+  & > strong {
+    white-space: nowrap;
+  }
+
+  & + & {
+    border-left: 1px solid black;
+    border-radius: 0 4px 4px 0;
+    padding-left: 10px;
+  }
+`
