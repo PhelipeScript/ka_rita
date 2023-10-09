@@ -31,15 +31,15 @@ export function Header() {
 
         <HeaderContentBottom>
           <CategoryItem>Todas</CategoryItem>
-          <CategoryItem>Promoção</CategoryItem>
-          <CategoryItem>Marcas</CategoryItem>
           <CategoryItem>Sutiã</CategoryItem>
           <CategoryItem>Calcinha</CategoryItem>
-          <CategoryItem>Meia</CategoryItem>
-          <CategoryItem>Praia</CategoryItem>
-          <CategoryItem>Body</CategoryItem>
-          <CategoryItem>Modelador</CategoryItem>
-          <CategoryItem>Acessórios</CategoryItem>
+          <CategoryItem>Conjunto</CategoryItem>
+          {/* <CategoryItem>Promoção</CategoryItem> */}
+          {/* <CategoryItem>Marcas</CategoryItem> */}
+          {/* <CategoryItem>Praia</CategoryItem> */}
+          {/* <CategoryItem>Body</CategoryItem> */}
+          {/* <CategoryItem>Modelador</CategoryItem> */}
+          {/* <CategoryItem>Acessórios</CategoryItem> */}
         </HeaderContentBottom>
       </HeaderContent>
     </HeaderContainer>

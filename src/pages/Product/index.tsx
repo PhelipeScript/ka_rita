@@ -16,10 +16,13 @@ import {
   SizeOption,
 } from './styles'
 import { MapPin } from 'phosphor-react'
+import { useEffect, useState } from 'react'
 
 export function Product() {
   const { productId } = useParams()
   const navigate = useNavigate()
+
+  const [activeImg, setActiveImg] = useState<string>('')
 
   if (!productId) {
     navigate('/', { replace: true })
@@ -35,6 +38,9 @@ export function Product() {
     return <h1>Page Not Found!</h1>
   }
 
+  // eslint-disable-next-line
+  useEffect(() => setActiveImg(item.imgUrl[0]), [item])
+
   return (
     <ProductContainer>
       <p>
@@ -45,11 +51,17 @@ export function Product() {
       <ProductInfo>
         <ImageContainer>
           <div>
-            <ImageOption active>
-              <img src={item.imgUrl} alt="" />
-            </ImageOption>
+            {item.imgUrl.map((img) => (
+              <ImageOption
+                key={img}
+                $active={img === activeImg ? 'yes' : 'no'}
+                onClick={() => setActiveImg(img)}
+              >
+                <img src={img} alt="" />
+              </ImageOption>
+            ))}
           </div>
-          <img src={item.imgUrl} alt="" />
+          <img src={activeImg} alt="" />
         </ImageContainer>
 
         <InfoContainer>
@@ -63,16 +75,31 @@ export function Product() {
           <ProductForm>
             <label htmlFor="colors">Cores disponíveis: </label>
             <OptionsContainer>
-              <ColorOption type="radio" name="color" variant="black" required />
-              <ColorOption type="radio" name="color" variant="white" required />
-              <ColorOption type="radio" name="color" variant="beige" required />
+              {item.color.map((color) => (
+                <ColorOption
+                  key={color}
+                  type="radio"
+                  name="color"
+                  $variant={color}
+                  required
+                />
+              ))}
             </OptionsContainer>
 
             <label>Escolha o tamanho: </label>
             <OptionsContainer>
-              <SizeOption variant="P" type="radio" name="size" required />
-              <SizeOption variant="M" type="radio" name="size" required />
-              <SizeOption variant="G" type="radio" name="size" required />
+              {item.size.map((size) => (
+                <SizeOption
+                  key={size}
+                  $variant={size}
+                  type="radio"
+                  name="size"
+                  required
+                />
+              ))}
+              {/* <SizeOption $variant="P" type="radio" name="size" required />
+              <SizeOption $variant="M" type="radio" name="size" required />
+              <SizeOption $variant="G" type="radio" name="size" required /> */}
             </OptionsContainer>
 
             <Button>Comprar</Button>
@@ -93,7 +120,7 @@ export function Product() {
           </FreteForm>
 
           <FreteServiceContainer>
-            <FreteServiceCard visible={true}>
+            <FreteServiceCard $visible="yes">
               <div>
                 <strong>Correios SEDEX</strong>
                 <span>Prazo de entrega: 2 dias úteis.</span>
@@ -101,7 +128,7 @@ export function Product() {
               <strong>R$ 27,90</strong>
             </FreteServiceCard>
 
-            <FreteServiceCard visible={true}>
+            <FreteServiceCard $visible="yes">
               <div>
                 <strong>Correios PAC</strong>
                 <span>Prazo de entrega: 6 dias úteis.</span>
@@ -111,6 +138,10 @@ export function Product() {
           </FreteServiceContainer>
         </InfoContainer>
       </ProductInfo>
+
+      <div>
+        <h2>Descrição</h2>
+      </div>
     </ProductContainer>
   )
 }

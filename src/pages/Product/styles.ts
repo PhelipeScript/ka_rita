@@ -38,7 +38,7 @@ export const ProductInfo = styled.main`
 `
 
 interface ImageOptionProps {
-  active?: boolean
+  $active: 'yes' | 'no'
 }
 
 export const ImageOption = styled.button<ImageOptionProps>`
@@ -47,7 +47,7 @@ export const ImageOption = styled.button<ImageOptionProps>`
   border: none;
 
   ${(props) =>
-    props.active
+    props.$active === 'yes'
       ? css`
           opacity: 1;
           border: 1px solid;
@@ -77,6 +77,8 @@ export const ImageContainer = styled.section`
     @media (max-width: 768px) {
       left: 0;
       bottom: -120px;
+      flex-direction: row;
+      width: 200px;
     }
   }
 
@@ -84,6 +86,10 @@ export const ImageContainer = styled.section`
     max-width: 100%;
     min-height: 100%;
     object-fit: fill;
+
+    @media (max-width: 768px) {
+      max-height: 100%;
+    }
   }
 
   & > img {
@@ -92,7 +98,7 @@ export const ImageContainer = styled.section`
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    image-rendering: pixelated;
+    /* image-rendering: pixelated; */
   }
 `
 
@@ -167,29 +173,20 @@ const DefaultOption = styled.input`
 `
 
 interface ColorOptionProps {
-  variant:
-    | 'blue'
-    | 'red'
-    | 'green'
-    | 'yellow'
-    | 'orange'
-    | 'black'
-    | 'white'
-    | 'beige'
-    | 'purple'
+  $variant: string
 }
 
 export const ColorOption = styled(DefaultOption)<ColorOptionProps>`
-  background: ${(props) => props.variant};
+  background: ${(props) => props.$variant};
 `
 
 interface SizeOptionProps {
-  variant: 'P' | 'M' | 'G'
+  $variant: string
 }
 
 export const SizeOption = styled(DefaultOption)<SizeOptionProps>`
   &::after {
-    content: '${(props) => props.variant}';
+    content: '${(props) => props.$variant}';
     width: 100%;
     height: 100%;
     display: flex;
@@ -284,7 +281,7 @@ export const FreteServiceContainer = styled.div`
 `
 
 interface FreteServiceCardProps {
-  visible: boolean
+  $visible: 'yes' | 'no'
 }
 
 export const FreteServiceCard = styled.div<FreteServiceCardProps>`
@@ -292,7 +289,7 @@ export const FreteServiceCard = styled.div<FreteServiceCardProps>`
   height: 100%;
   margin-top: 10px;
   border-radius: 4px;
-  display: ${(props) => (props.visible ? 'flex' : 'none')};
+  display: ${(props) => (props.$visible === 'yes' ? 'flex' : 'none')};
   align-items: flex-start;
   justify-content: space-between;
 
