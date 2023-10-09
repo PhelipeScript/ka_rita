@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import { InMemoryRepository } from '../../database/in-memory/InMemoryRepository'
 import {
   Button,
@@ -44,8 +44,9 @@ export function Product() {
   return (
     <ProductContainer>
       <p>
-        Você está em: <a href="/">Home</a> &#10095;{' '}
-        <a href="/">{item.category}</a> &#10095; {item.name}
+        Você está em: <NavLink to="/ka_rita">Home</NavLink> &#10095;{' '}
+        <NavLink to={`/ka_rita/${item.category}`}>{item.category}</NavLink>{' '}
+        &#10095; {item.name}
       </p>
 
       <ProductInfo>

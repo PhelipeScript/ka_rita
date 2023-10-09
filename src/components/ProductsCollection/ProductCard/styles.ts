@@ -59,6 +59,7 @@ export const ViewProductContainer = styled.div`
 `
 
 export const ProductCardContent = styled(NavLink)`
+  max-width: 260px;
   min-width: 240px;
   display: flex;
   flex-direction: column;

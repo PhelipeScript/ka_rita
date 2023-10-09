@@ -79,7 +79,7 @@ export const SearchInput = styled.input`
 
 export const HeaderContentBottom = styled.ul`
   list-style: none;
-  padding: 1rem 0;
+  padding: 1rem 15px;
   width: 100%;
   height: 50px;
   overflow: hidden;
@@ -101,5 +101,10 @@ export const CategoryItem = styled.li`
 
   &:hover {
     text-decoration: underline;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.black};
   }
 `

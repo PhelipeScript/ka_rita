@@ -30,10 +30,18 @@ export function Header() {
         </HeaderContentTop>
 
         <HeaderContentBottom>
-          <CategoryItem>Todas</CategoryItem>
-          <CategoryItem>Sutiã</CategoryItem>
-          <CategoryItem>Calcinha</CategoryItem>
-          <CategoryItem>Conjunto</CategoryItem>
+          <CategoryItem>
+            <NavLink to="/ka_rita/todas">Todas</NavLink>
+          </CategoryItem>
+          <CategoryItem>
+            <NavLink to="/ka_rita/sutia">Sutiã</NavLink>
+          </CategoryItem>
+          <CategoryItem>
+            <NavLink to="/ka_rita/calcinha">Calcinha</NavLink>
+          </CategoryItem>
+          <CategoryItem>
+            <NavLink to="/ka_rita/conjunto">Conjunto</NavLink>
+          </CategoryItem>
           {/* <CategoryItem>Promoção</CategoryItem> */}
           {/* <CategoryItem>Marcas</CategoryItem> */}
           {/* <CategoryItem>Praia</CategoryItem> */}
