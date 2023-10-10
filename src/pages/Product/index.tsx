@@ -1,4 +1,11 @@
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import { MapPin } from 'phosphor-react'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import axios from 'axios'
+
 import { InMemoryRepository } from '../../database/in-memory/InMemoryRepository'
 import {
   Button,
@@ -15,14 +22,51 @@ import {
   ProductInfo,
   SizeOption,
 } from './styles'
-import { MapPin } from 'phosphor-react'
-import { useEffect, useState } from 'react'
+
+const freteFormValidationSchema = z.object({
+  cep: z
+    .string()
+    .min(8, 'Informe um CEP válido')
+    .max(8, 'Informe um CEP válido'),
+})
+
+type FreteFormData = z.infer<typeof freteFormValidationSchema>
+
+interface FreteServicesProps {
+  ceporigem: string
+  cepdestino: string
+  valorpac: string
+  prazopac: string
+  valorsedex: string
+  prazosedex: string
+}
 
 export function Product() {
   const { productId } = useParams()
   const navigate = useNavigate()
-
   const [activeImg, setActiveImg] = useState<string>('')
+  const [freteButtonLoading, setFreteButtonLoading] = useState(false)
+  const [freteServices, setFreteServices] = useState<FreteServicesProps | null>(
+    null,
+  )
+  const { register, handleSubmit, reset } = useForm<FreteFormData>({
+    resolver: zodResolver(freteFormValidationSchema),
+    defaultValues: {
+      cep: '',
+    },
+  })
+
+  async function handleFreteForm({ cep }: FreteFormData) {
+    setFreteServices(null)
+    setFreteButtonLoading(true)
+    const response = await axios.get(
+      `https://www.cepcerto.com/ws/json-frete/05821030/${cep}/1000/14/30/20`,
+    )
+
+    setFreteButtonLoading(false)
+    setFreteServices(response.data)
+    reset()
+  }
 
   if (!productId) {
     navigate('/', { replace: true })
@@ -98,43 +142,47 @@ export function Product() {
                   required
                 />
               ))}
-              {/* <SizeOption $variant="P" type="radio" name="size" required />
-              <SizeOption $variant="M" type="radio" name="size" required />
-              <SizeOption $variant="G" type="radio" name="size" required /> */}
             </OptionsContainer>
 
             <Button>Comprar</Button>
           </ProductForm>
 
-          <FreteForm action="">
+          <FreteForm action="" onSubmit={handleSubmit(handleFreteForm)}>
             <label htmlFor="cep">
               <MapPin size={18} weight="fill" color="#0086FF" />
               Calcular frete e prazo:
             </label>
             <input
               type="number"
-              name="cep"
-              id="cep"
               placeholder="Digite seu CEP"
+              {...register('cep')}
             />
-            <button>Calcular</button>
+            <button disabled={freteButtonLoading}>
+              {freteButtonLoading ? '' : 'Calcular'}
+            </button>
           </FreteForm>
 
           <FreteServiceContainer>
-            <FreteServiceCard $visible="yes">
+            <FreteServiceCard
+              $visible={freteServices?.valorsedex ? 'yes' : 'no'}
+            >
               <div>
                 <strong>Correios SEDEX</strong>
-                <span>Prazo de entrega: 2 dias úteis.</span>
+                <span>
+                  Prazo de entrega: {freteServices?.prazosedex} dias úteis.
+                </span>
               </div>
-              <strong>R$ 27,90</strong>
+              <strong>R$ {freteServices?.valorsedex}</strong>
             </FreteServiceCard>
 
-            <FreteServiceCard $visible="yes">
+            <FreteServiceCard $visible={freteServices?.valorpac ? 'yes' : 'no'}>
               <div>
                 <strong>Correios PAC</strong>
-                <span>Prazo de entrega: 6 dias úteis.</span>
+                <span>
+                  Prazo de entrega: {freteServices?.prazopac} dias úteis.
+                </span>
               </div>
-              <strong>R$ 20,90</strong>
+              <strong>R$ {freteServices?.valorpac}</strong>
             </FreteServiceCard>
           </FreteServiceContainer>
         </InfoContainer>

@@ -79,7 +79,7 @@ export const SearchInput = styled.input`
 
 export const HeaderContentBottom = styled.ul`
   list-style: none;
-  padding: 1rem 15px;
+  padding: 1rem 30px;
   width: 100%;
   height: 50px;
   overflow: hidden;

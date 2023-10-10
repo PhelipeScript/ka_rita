@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components'
+import { css, keyframes, styled } from 'styled-components'
 
 export const ProductContainer = styled.div`
   width: 100%;
@@ -216,6 +216,13 @@ export const Button = styled.button`
   }
 `
 
+const loadingAnimation = keyframes`
+  20% { transform: rotate(0deg) }
+  50% {  transform: rotate(180deg)  }
+  70% {  transform: rotate(360deg)  }
+  100% {  transform: rotate(540deg)  }
+`
+
 export const FreteForm = styled.form`
   display: grid;
   grid-template-areas: 'label label' 'input button';
@@ -262,13 +269,27 @@ export const FreteForm = styled.form`
     text-transform: uppercase;
     font-size: 0.865rem;
     padding: 10px 20px;
+    width: 72px;
+    height: 18px;
     border-radius: 4px;
     background: ${(props) => props.theme['blue-400']};
     color: ${(props) => props.theme.white};
+    text-align: center;
+    transition: all 0.8s ease;
 
-    &:hover {
+    &:not(:disabled):hover {
       background: #1a43bf;
       transition: background 0.1s ease;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      width: 0;
+      height: 18px;
+      border-radius: 8px;
+      animation-name: ${loadingAnimation};
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
     }
   }
 `
