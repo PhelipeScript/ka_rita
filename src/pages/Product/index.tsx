@@ -60,7 +60,7 @@ export function Product() {
     setFreteServices(null)
     setFreteButtonLoading(true)
     const response = await axios.get(
-      `https://www.cepcerto.com/ws/json-frete/05821030/${cep}/1000/14/30/20`,
+      `https://www.cepcerto.com/ws/json-frete/05821030/${cep}/1000/14/30/20/63cdbd6e2753ca6b4ad26c91753ba41e2f36d268/`,
     )
 
     setFreteButtonLoading(false)

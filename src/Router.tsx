@@ -8,13 +8,13 @@ import { Category } from './pages/Category'
 export function Router() {
   return (
     <Routes>
-      <Route path="/ka_rita" element={<DefaultLayout />}>
-        <Route path="/ka_rita" element={<Home />} />
-        <Route path="/ka_rita/todas" element={<Category />} />
-        <Route path="/ka_rita/sutia" element={<Category />} />
-        <Route path="/ka_rita/calcinha" element={<Category />} />
-        <Route path="/ka_rita/conjunto" element={<Category />} />
-        <Route path="/ka_rita/product/:productId" element={<Product />} />
+      <Route path="/" element={<DefaultLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/todas" element={<Category />} />
+        <Route path="/sutia" element={<Category />} />
+        <Route path="/calcinha" element={<Category />} />
+        <Route path="/conjunto" element={<Category />} />
+        <Route path="/product/:productId" element={<Product />} />
       </Route>
     </Routes>
   )
