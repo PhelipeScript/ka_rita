@@ -23,7 +23,7 @@ export function ProductCard({
   priceWithDiscount,
 }: ProductCardProps) {
   return (
-    <ProductCardContent to={`/ka_rita/product/${id}`} title="Ver produto">
+    <ProductCardContent to={`/product/${id}`} title="Ver produto">
       <span>{discountPercentage}% off</span>
       <img src={imgUrl} alt="" />
       <h3>{title}</h3>

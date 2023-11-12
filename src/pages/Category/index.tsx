@@ -11,7 +11,7 @@ export function Category() {
 
   let items: ProductProps[]
 
-  switch (location.pathname.substring(9, 50).trim()) {
+  switch (location.pathname.substring(1, 50).trim()) {
     case 'conjunto':
       items = inMemoryRepository.getItemByCategory({ category: 'conjunto' })
       break

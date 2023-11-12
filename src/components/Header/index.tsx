@@ -17,7 +17,7 @@ export function Header() {
     <HeaderContainer>
       <HeaderContent>
         <HeaderContentTop>
-          <NavLink to="/ka_rita">
+          <NavLink to="/">
             <img src={logoImg} alt="" />
           </NavLink>
 
@@ -31,16 +31,16 @@ export function Header() {
 
         <HeaderContentBottom>
           <CategoryItem>
-            <NavLink to="/ka_rita/todas">Todas</NavLink>
+            <NavLink to="/todas">Todas</NavLink>
           </CategoryItem>
           <CategoryItem>
-            <NavLink to="/ka_rita/sutia">Sutiã</NavLink>
+            <NavLink to="/sutia">Sutiã</NavLink>
           </CategoryItem>
           <CategoryItem>
-            <NavLink to="/ka_rita/calcinha">Calcinha</NavLink>
+            <NavLink to="/calcinha">Calcinha</NavLink>
           </CategoryItem>
           <CategoryItem>
-            <NavLink to="/ka_rita/conjunto">Conjunto</NavLink>
+            <NavLink to="/conjunto">Conjunto</NavLink>
           </CategoryItem>
           {/* <CategoryItem>Promoção</CategoryItem> */}
           {/* <CategoryItem>Marcas</CategoryItem> */}

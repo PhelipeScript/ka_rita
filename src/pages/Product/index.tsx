@@ -88,9 +88,9 @@ export function Product() {
   return (
     <ProductContainer>
       <p>
-        Você está em: <NavLink to="/ka_rita">Home</NavLink> &#10095;{' '}
-        <NavLink to={`/ka_rita/${item.category}`}>{item.category}</NavLink>{' '}
-        &#10095; {item.name}
+        Você está em: <NavLink to="/">Home</NavLink> &#10095;{' '}
+        <NavLink to={`/${item.category}`}>{item.category}</NavLink> &#10095;{' '}
+        {item.name}
       </p>
 
       <ProductInfo>
