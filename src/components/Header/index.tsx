@@ -10,9 +10,18 @@ import {
 
 import logoImg from '../../assets/logo.svg'
 import { MagnifyingGlass } from 'phosphor-react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 export function Header() {
+  const navigate = useNavigate()
+  const [searchValue, setSearchValue] = useState<string | ''>('')
+
+  function handleSearch() {
+    navigate(`/todas?q=${searchValue}`, { replace: true })
+    setSearchValue('')
+  }
+
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -22,8 +31,12 @@ export function Header() {
           </NavLink>
 
           <SearchContainer>
-            <SearchInput placeholder="O que você procura ?" />
-            <MagnifyingGlass />
+            <SearchInput
+              placeholder="O que você procura ?"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+            <MagnifyingGlass onClick={handleSearch} />
           </SearchContainer>
 
           {/* <ShoppingCartSimple /> */}

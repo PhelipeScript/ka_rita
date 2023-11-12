@@ -1,18 +1,10 @@
-import { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { FormEvent, useEffect, useState } from 'react'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
-import { MapPin } from 'phosphor-react'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
-import axios from 'axios'
 
 import { InMemoryRepository } from '../../database/in-memory/InMemoryRepository'
 import {
   Button,
   ColorOption,
-  FreteForm,
-  FreteServiceCard,
-  FreteServiceContainer,
   ImageContainer,
   ImageOption,
   InfoContainer,
@@ -23,50 +15,50 @@ import {
   SizeOption,
 } from './styles'
 
-const freteFormValidationSchema = z.object({
-  cep: z
-    .string()
-    .min(8, 'Informe um CEP válido')
-    .max(8, 'Informe um CEP válido'),
-})
+// const freteFormValidationSchema = z.object({
+//   cep: z
+//     .string()
+//     .min(8, 'Informe um CEP válido')
+//     .max(8, 'Informe um CEP válido'),
+// })
 
-type FreteFormData = z.infer<typeof freteFormValidationSchema>
+// type FreteFormData = z.infer<typeof freteFormValidationSchema>
 
-interface FreteServicesProps {
-  ceporigem: string
-  cepdestino: string
-  valorpac: string
-  prazopac: string
-  valorsedex: string
-  prazosedex: string
-}
+// interface FreteServicesProps {
+//   ceporigem: string
+//   cepdestino: string
+//   valorpac: string
+//   prazopac: string
+//   valorsedex: string
+//   prazosedex: string
+// }
 
 export function Product() {
   const { productId } = useParams()
   const navigate = useNavigate()
   const [activeImg, setActiveImg] = useState<string>('')
-  const [freteButtonLoading, setFreteButtonLoading] = useState(false)
-  const [freteServices, setFreteServices] = useState<FreteServicesProps | null>(
-    null,
-  )
-  const { register, handleSubmit, reset } = useForm<FreteFormData>({
-    resolver: zodResolver(freteFormValidationSchema),
-    defaultValues: {
-      cep: '',
-    },
-  })
+  // const [freteButtonLoading, setFreteButtonLoading] = useState(false)
+  // const [freteServices, setFreteServices] = useState<FreteServicesProps | null>(
+  //   null,
+  // )
+  // const { register, handleSubmit, reset } = useForm<FreteFormData>({
+  //   resolver: zodResolver(freteFormValidationSchema),
+  //   defaultValues: {
+  //     cep: '',
+  //   },
+  // })
 
-  async function handleFreteForm({ cep }: FreteFormData) {
-    setFreteServices(null)
-    setFreteButtonLoading(true)
-    const response = await axios.get(
-      `https://www.cepcerto.com/ws/json-frete/05821030/${cep}/1000/14/30/20/63cdbd6e2753ca6b4ad26c91753ba41e2f36d268/`,
-    )
+  // async function handleFreteForm({ cep }: FreteFormData) {
+  //   setFreteServices(null)
+  //   setFreteButtonLoading(true)
+  //   const response = await axios.get(
+  //     `https://www.cepcerto.com/ws/json-frete/05821030/${cep}/1000/14/30/20/63cdbd6e2753ca6b4ad26c91753ba41e2f36d268/`,
+  //   )
 
-    setFreteButtonLoading(false)
-    setFreteServices(response.data)
-    reset()
-  }
+  //   setFreteButtonLoading(false)
+  //   setFreteServices(response.data)
+  //   reset()
+  // }
 
   if (!productId) {
     navigate('/', { replace: true })
@@ -80,6 +72,11 @@ export function Product() {
   if (!item) {
     navigate('/', { replace: true })
     return <h1>Page Not Found!</h1>
+  }
+
+  function handlePurchase(e: FormEvent) {
+    e.preventDefault()
+    window.location.href = `https://wa.me/5511948999760?text=Eu+gostei+desse:+${item?.name}+%0A+Você+pode+me+dar+mais+informações+sobre+o+produto?`
   }
 
   // eslint-disable-next-line
@@ -117,7 +114,7 @@ export function Product() {
           <strong>
             R$ {item.price.withDiscount.toFixed(2).replace('.', ',')}
           </strong>
-          <ProductForm>
+          <ProductForm onSubmit={handlePurchase}>
             <label htmlFor="colors">Cores disponíveis: </label>
             <OptionsContainer>
               {item.color.map((color) => (
@@ -147,7 +144,7 @@ export function Product() {
             <Button>Comprar</Button>
           </ProductForm>
 
-          <FreteForm action="" onSubmit={handleSubmit(handleFreteForm)}>
+          {/* <FreteForm action="" onSubmit={handleSubmit(handleFreteForm)}>
             <label htmlFor="cep">
               <MapPin size={18} weight="fill" color="#0086FF" />
               Calcular frete e prazo:
@@ -184,13 +181,13 @@ export function Product() {
               </div>
               <strong>R$ {freteServices?.valorpac}</strong>
             </FreteServiceCard>
-          </FreteServiceContainer>
+          </FreteServiceContainer> */}
         </InfoContainer>
       </ProductInfo>
-
+      {/* 
       <div>
         <h2>Descrição</h2>
-      </div>
+      </div> */}
     </ProductContainer>
   )
 }

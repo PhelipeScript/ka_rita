@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import { InMemoryRepository } from '../../database/in-memory/InMemoryRepository'
 import { ProductProps } from '../../database/in-memory'
 import { CategoryContainer } from './styles'
@@ -6,6 +6,9 @@ import { ProductCard } from '../../components/ProductsCollection/ProductCard'
 
 export function Category() {
   const location = useLocation()
+  const [searchParams] = useSearchParams()
+
+  const query = searchParams.get('q') ?? ''
 
   const inMemoryRepository = new InMemoryRepository()
 
@@ -22,7 +25,11 @@ export function Category() {
       items = inMemoryRepository.getItemByCategory({ category: 'sutia' })
       break
     case 'todas':
-      items = inMemoryRepository.getAllItems()
+      items = inMemoryRepository
+        .getAllItems()
+        .filter((item) =>
+          item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
+        )
       break
     default:
       return <h1>Page Not Found</h1>
